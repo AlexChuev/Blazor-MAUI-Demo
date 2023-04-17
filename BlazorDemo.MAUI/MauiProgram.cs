@@ -4,6 +4,7 @@ using DevExpress.Blazor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using DevExpress.Maui;
+using CommunityToolkit.Maui;
 
 namespace BlazorDemo.MAUI
 {
@@ -17,6 +18,7 @@ namespace BlazorDemo.MAUI
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
+            builder.UseMauiCommunityToolkit();
             builder.UseDevExpress();
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddDevExpressBlazor(options => {

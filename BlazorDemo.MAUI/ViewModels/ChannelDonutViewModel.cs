@@ -19,14 +19,14 @@ namespace BlazorDemo.MAUI.ViewModels {
             TrafficChannelsData = new ObservableCollection<TrafficChannel>() {
                 new TrafficChannel("Organic", 17000),
                 new TrafficChannel("Direct", 6000),
-                new TrafficChannel("Referral", 2000),
-                new TrafficChannel("Social", 900)
+                new TrafficChannel("Referral", 2500),
+                new TrafficChannel("Social", 2000)
             };
             TrafficColors = new Color[] {
-                Color.FromArgb("#80cbc4"),
-                Color.FromArgb("#bcaaa4"),
-                Color.FromArgb("#ffab91"),
-                Color.FromArgb("#9fa8da"),
+                Color.FromArgb("#84B9A0"),
+                Color.FromArgb("#708EC8"),
+                Color.FromArgb("#CF935B"),
+                Color.FromArgb("#D671CC"),
             };
         }
 
