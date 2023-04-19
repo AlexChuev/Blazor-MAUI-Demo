@@ -9,7 +9,7 @@
     <ContentView.BindingContext>
         <viewModels:ChannelDonutViewModel/>
     </ContentView.BindingContext>
-    <dxc:PieChartView x:Name="pieChartView">
+    <dxc:PieChartView>
         <dxc:PieChartView.Series>
             <dxc:DonutSeries>
                 <dxc:DonutSeries.Data>
@@ -20,7 +20,7 @@
                         <dxc:PieSeriesLabel.Style>
                             <dxc:PieSeriesLabelStyle>
                                 <dxc:PieSeriesLabelStyle.TextStyle>
-                                    <dxc:TextStyle Size="12" Color="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray950}}" />
+                                    <dxc:TextStyle Size="12" Color="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}" />
                                 </dxc:PieSeriesLabelStyle.TextStyle>
                             </dxc:PieSeriesLabelStyle>
                         </dxc:PieSeriesLabel.Style>
@@ -36,7 +36,7 @@
                     HorizontalPosition="RightOutside"
                     VerticalPosition="Center">
                 <dxc:Legend.Style>
-                    <dxc:LegendStyle ItemsVerticalIndent="20" IndentFromDiagram="20" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark=Black}" >
+                    <dxc:LegendStyle MarkerSize="20" ItemsVerticalIndent="20" TextIndent="10" IndentFromDiagram="40" BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark=Black}" >
                         <dxc:LegendStyle.TextStyle>
                             <dxc:TextStyle Size="14" Color="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource White}}" />
                         </dxc:LegendStyle.TextStyle>
@@ -45,7 +45,7 @@
             </dxc:Legend>
         </dxc:PieChartView.Legend>
         <dxc:PieChartView.ChartStyle>
-            <dxc:PieChartStyle Palette="{Binding TrafficColors}" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark=Black}"/>
+            <dxc:PieChartStyle Palette="{Binding TrafficColors}" BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark=Black}"/>
         </dxc:PieChartView.ChartStyle>
     </dxc:PieChartView>
 </ContentView>
