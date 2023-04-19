@@ -13,7 +13,6 @@ namespace BlazorDemo.MAUI.ViewModels {
         bool _isBusy;
         string _title = string.Empty;
         public IDataStore DataStore => DependencyService.Get<IDataStore>();
-        //public INavigationService Navigation => DependencyService.Get<INavigationService>();
 
         public bool IsBusy {
             get => _isBusy;

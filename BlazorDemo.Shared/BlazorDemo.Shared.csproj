@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="DataSources\issue-list.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Compile Remove="DataSources\**" />
+    <Content Remove="DataSources\**" />
+    <EmbeddedResource Remove="DataSources\**" />
+    <None Remove="DataSources\**" />
   </ItemGroup>
 
 

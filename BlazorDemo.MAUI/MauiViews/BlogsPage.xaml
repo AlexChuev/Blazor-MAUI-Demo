@@ -18,7 +18,7 @@
                 <DataTemplate x:DataType="{x:Type viewModels:BlogPost}">
                     <VerticalStackLayout Margin="0,8,0,8">
                         <Border StrokeShape="RoundRectangle 20,20,20,20" Margin="16,0,16,10">
-                            <Image Source="{Binding ImagePath}" Aspect="AspectFill"/>
+                            <Image Source="{Binding ImagePath}" Aspect="AspectFill" HeightRequest="200"/>
                         </Border>
                         <Label Text="{Binding Title}" TextColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray100}}" FontSize="18" MaxLines="3" LineBreakMode="WordWrap" Margin="16,0,16,10"/>
                         <Grid ColumnDefinitions="Auto,Auto,*,Auto" Margin="16,0,16,0">
