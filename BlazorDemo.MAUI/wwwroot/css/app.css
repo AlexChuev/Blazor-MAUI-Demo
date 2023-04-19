@@ -92,3 +92,7 @@ a, .btn-link {
         padding-left: env(safe-area-inset-left);
     }
 }
+
+.dxbl-modal.dxbl-sidepanel > .dxbl-modal-root > .dxbl-popup.dxbl-sidepanel-dialog.dxbl-grid-column-chooser-dialog {
+    align-self: end !important;
+}

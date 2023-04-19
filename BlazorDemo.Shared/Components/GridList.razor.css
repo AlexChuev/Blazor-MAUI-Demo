@@ -1,22 +1,59 @@
-﻿.my-grid {
-    border-left: 0px;
-    border-right: 0px;
+﻿.my-container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-    .my-grid.dxbl-grid .dxbl-grid-table > tbody > tr > td {
+.fab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    user-select: none;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+
+::deep .fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.35) !important;
+}
+
+::deep .my-grid {
+    height: 70%;
+    flex: 70%
+}
+
+::deep .btn-column-chooser {
+    width: 16px;
+    height: 16px;
+    -webkit-mask-image: url("column-chooser.svg");
+    mask-image: url("column-chooser.svg");
+    background-color: currentColor;
+}
+
+::deep .my-grid.dxbl-grid .dxbl-grid-table > tbody > tr > td {
         border-left-width: 0px;
     }
 
-    .my-grid.dxbl-grid .dxbl-grid-table > thead > tr > th {
+::deep .my-grid.dxbl-grid .dxbl-grid-table > thead > tr > th {
         border-left-width: 0px;
     }
 
-    .my-grid.dxbl-grid .dxbl-grid-table > thead > tr > td {
+::deep .my-grid.dxbl-grid .dxbl-grid-table > thead > tr > td {
         border-left-width: 0px;
     }
 
-.grid-btn-link {
+::deep .my-grid.dxbl-grid .dxbl-grid-group-row {
+    height: 36px;
+}
+
+::deep .grid-btn-link {
     border: 0;
     display: inline;
     font: inherit;
@@ -24,4 +61,8 @@
     padding: 0;
     text-decoration: underline;
     vertical-align: baseline;
+}
+
+::deep .dxbl-modal.dxbl-sidepanel > .dxbl-modal-root > .dxbl-popup.dxbl-sidepanel-dialog.dxbl-grid-column-chooser-dialog {
+    align-self: end !important;
 }

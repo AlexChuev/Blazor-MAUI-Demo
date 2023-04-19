@@ -1,5 +1,4 @@
 @import url('open.iconic/font/css/open-iconic-bootstrap.min.css');
-@import url('_content/BlazorDemo.Shared/BlazorDemo.Shared.bundle.scp.css');
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -39,4 +38,8 @@ html, body {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+}
+
+.dxbl-modal.dxbl-sidepanel > .dxbl-modal-root > .dxbl-popup.dxbl-sidepanel-dialog.dxbl-grid-column-chooser-dialog {
+    align-self: end !important;
 }
