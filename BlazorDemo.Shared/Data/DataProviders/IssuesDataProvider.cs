@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿
 using System.Runtime.InteropServices;
 
 namespace BlazorDemo.Shared.Data.DataProviders
@@ -13,9 +12,34 @@ namespace BlazorDemo.Shared.Data.DataProviders
     }
 
     public class IssuesDataProvider : IIssuesDataProvider {
-        public async Task<IEnumerable<Issue>> GetIssuesAsync(CancellationToken ct = default)
-        {
-            return await Task.Run<IEnumerable<Issue>>(() => new List<Issue>() {
+
+        static readonly IEnumerable<Project> projects = new List<Project>() {
+                new Project() {ID = 2, Name = "Enterprise Accounting System", ManagerID = 2},
+                new Project() {ID = 3, Name = "Small-Business Accounting System", ManagerID = 15},
+                new Project() {ID = 4, Name = "Home-Office Accounting System", ManagerID = 16}
+            };
+
+        static readonly IEnumerable<User> users = new List<User>() {
+                new User() {ID = 2, FirstName="Paul", LastName="Bailey" },
+                new User() {ID = 3, FirstName="Brad", LastName="Barnes" },
+                new User() {ID = 4, FirstName="Jerry", LastName="Campbell" },
+                new User() {ID = 5, FirstName="Carl", LastName="Lucas" },
+                new User() {ID = 6, FirstName="Peter", LastName="Dolan" },
+                new User() {ID = 7, FirstName="Ryan", LastName="Fischer" },
+                new User() {ID = 8, FirstName="Richard", LastName="Fisher" },
+                new User() {ID = 9, FirstName="Tom", LastName="Hamlett" },
+                new User() {ID = 10, FirstName="Mark", LastName="Hamilton" },
+                new User() {ID = 11, FirstName="Steve", LastName="Lee" },
+                new User() {ID = 12, FirstName="Jimmy", LastName="Lewis" },
+                new User() {ID = 13, FirstName="Jeffrey", LastName="McClain" },
+                new User() {ID = 14, FirstName="Andrew", LastName="Miller" },
+                new User() {ID = 15, FirstName="Dave", LastName="Murrel" },
+                new User() {ID = 16, FirstName="Bert", LastName="Parkins" },
+                new User() {ID = 17, FirstName="Mike", LastName="Roller" },
+                new User() {ID = 18, FirstName="Ray", LastName="Shipman" },
+            };
+
+        static readonly IEnumerable<Issue> issues = new List<Issue>() {
                 new Issue() {Type = IssueType.Request, ProjectID = 4, Priority=IssuePriority.Low, Status = IssueStatus.Fixed, CreatorID = 12, CreatedDate = new DateTime(2022,07,01), OwnerID = 4, ModifiedDate = new DateTime(2022,07,10), FixedDate = new DateTime(2022,07,10), Name = "Accounting System: MasterView" },
                 new Issue() {Type = IssueType.Request, ProjectID = 2, Priority=IssuePriority.Low, Status = IssueStatus.Fixed, CreatorID = 3, CreatedDate = new DateTime(2021,12,04), OwnerID = 11, ModifiedDate = new DateTime(2021,12,05 ), FixedDate = new DateTime(2021,12,05), Name = "Web Edition: Data Entry Page" },
                 new Issue() {Type = IssueType.Request, ProjectID = 3, Priority=IssuePriority.Low, Status = IssueStatus.Fixed, CreatorID = 18, CreatedDate = new DateTime(2022,07,11), OwnerID = 13, ModifiedDate = new DateTime(2022,07,23), FixedDate = new DateTime(2022,07,23), Name = "Payables Due Calculator" },
@@ -50,37 +74,15 @@ namespace BlazorDemo.Shared.Data.DataProviders
                 new Issue() {Type = IssueType.Request, ProjectID = 2, Priority=IssuePriority.Medium, Status = IssueStatus.Fixed, CreatorID = 15, CreatedDate = new DateTime(2021,07,14), OwnerID = 16, ModifiedDate = null, FixedDate = new DateTime(2022,08,16), Name = "Installer" },
                 new Issue() {Type = IssueType.Request, ProjectID = 3, Priority=IssuePriority.Medium, Status = IssueStatus.Fixed, CreatorID = 10, CreatedDate = new DateTime(2021,07,14), OwnerID = 16, ModifiedDate = new DateTime(2022, 05, 01), FixedDate = new DateTime(2022,08,16), Name = "Vendor TAX IDs" },
                 new Issue() {Type = IssueType.Request, ProjectID = 2, Priority=IssuePriority.Medium, Status = IssueStatus.Fixed, CreatorID = 3, CreatedDate = new DateTime(2021,07,14), OwnerID = 13, ModifiedDate = new DateTime(2022, 05, 01), FixedDate = new DateTime(2022,08,16), Name = "Vendor Name" },
-            });
-        }
-        public async Task<IEnumerable<Project>> GetProjectsAsync(CancellationToken ct = default)
-        {
-            return await Task.Run<IEnumerable<Project>>(() => new List<Project>() { 
-                new Project() {ID = 2, Name = "Enterprise Accounting System", ManagerID = 2},
-                new Project() {ID = 3, Name = "Small-Business Accounting System", ManagerID = 15},
-                new Project() {ID = 4, Name = "Home-Office Accounting System", ManagerID = 16}
-            });
-        }
-        public async Task<IEnumerable<User>> GetUsersAsync(CancellationToken ct = default)
-        {
-            return await Task.Run<IEnumerable<User>>(() => new List<User>() {
-                new User() {ID = 2, FirstName="Paul", LastName="Bailey" },
-                new User() {ID = 3, FirstName="Brad", LastName="Barnes" },
-                new User() {ID = 4, FirstName="Jerry", LastName="Campbell" },
-                new User() {ID = 5, FirstName="Carl", LastName="Lucas" },
-                new User() {ID = 6, FirstName="Peter", LastName="Dolan" },
-                new User() {ID = 7, FirstName="Ryan", LastName="Fischer" },
-                new User() {ID = 8, FirstName="Richard", LastName="Fisher" },
-                new User() {ID = 9, FirstName="Tom", LastName="Hamlett" },
-                new User() {ID = 10, FirstName="Mark", LastName="Hamilton" },
-                new User() {ID = 11, FirstName="Steve", LastName="Lee" },
-                new User() {ID = 12, FirstName="Jimmy", LastName="Lewis" },
-                new User() {ID = 13, FirstName="Jeffrey", LastName="McClain" },
-                new User() {ID = 14, FirstName="Andrew", LastName="Miller" },
-                new User() {ID = 15, FirstName="Dave", LastName="Murrel" },
-                new User() {ID = 16, FirstName="Bert", LastName="Parkins" },
-                new User() {ID = 17, FirstName="Mike", LastName="Roller" },
-                new User() {ID = 18, FirstName="Ray", LastName="Shipman" },
-            });
-        }
+            };
+
+        public Task<IEnumerable<Issue>> GetIssuesAsync(CancellationToken ct = default) 
+            => Task.FromResult(issues);
+        
+        public Task<IEnumerable<Project>> GetProjectsAsync(CancellationToken ct = default) 
+            => Task.FromResult(projects);
+        
+        public Task<IEnumerable<User>> GetUsersAsync(CancellationToken ct = default) 
+            => Task.FromResult(users);
     }
 }

@@ -5,7 +5,6 @@ using BlazorDemo.Shared.Data.Services;
 using DevExpress.Utils.Drawing;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +17,9 @@ builder.Services.AddDevExpressBlazor(options => {
 });
 builder.Services.AddSingleton<IIssuesDataProvider, IssuesDataProvider>();
 builder.Services.AddScoped<IssuesDataService>();
-builder.Services.AddDbContextFactory<IssuesContext>(opt => {
-    opt.UseSqlite($"Data Source={Path.Combine(System.AppContext.BaseDirectory, "DataSources", "issue-list.db")}");
-});
+//builder.Services.AddDbContextFactory<IssuesContext>(opt => {
+//    opt.UseSqlite($"Data Source={Path.Combine(System.AppContext.BaseDirectory, "DataSources", "issue-list.db")}");
+//});
 builder.WebHost.UseWebRoot("wwwroot");
 builder.WebHost.UseStaticWebAssets();
 

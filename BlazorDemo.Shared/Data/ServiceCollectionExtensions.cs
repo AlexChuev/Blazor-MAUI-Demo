@@ -1,6 +1,5 @@
 ﻿using BlazorDemo.Shared.Data.DataProviders;
 using BlazorDemo.Shared.Data.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorDemo.Server.Data
